@@ -1,0 +1,47 @@
+
+
+<div     class="container border ">
+    <div class="heading">Products</div>
+     <div class="inner-border ">
+        
+    <div class="col-sm-3 card"  *ngFor="let p of pageOfItems"    >
+        
+         <a>
+             
+        <div class="card_pic">
+
+            
+            <img src="../assets/images/car.jpg" class="img_style img-responsive">
+
+        </div>
+        
+        <div>
+            <p>lorem ipsum is the</p>
+
+            
+        </div>
+        
+        </a>
+    
+    
+
+    
+</div>
+<div class="card-footer pb-0 pt-3">
+        <jw-pagination [items]="items" (changePage)="onChangePage($event)"></jw-pagination>
+    </div>
+   
+</div>
+
+</div>
+
+
+ <!--<div class="card text-center m-3">
+    <h3 class="card-header">Angular 8 Pagination Example</h3>
+    <div class="card-body">
+        <div *ngFor="let item of pageOfItems">{{item.name}} {{item.id}}</div>
+    </div>
+    <div class="card-footer pb-0 pt-3">
+        <jw-pagination [items]="items" (changePage)="onChangePage($event)"></jw-pagination>
+    </div>
+</div> -->

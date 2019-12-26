@@ -1,0 +1,80 @@
+
+
+ <div class="container-fluid back ">
+        <div class="   col-sm-4">
+            
+        </div>
+          <div class=" col-sm-4 main">    
+              <div class=" main_inner ">
+                  <h1>Login</h1>
+        
+                  <form class="form"  [formGroup]="form" (ngSubmit)="authenticate()">
+                      <div class="control">
+                        <label class="em">Email </label>
+                        <br>
+                        
+                        <input type="text"  placeholder="Email"
+                        formControlName="email"
+                        >
+
+                        <div
+                          class="alert alert-danger"
+                          *ngIf="form.get('email').touched && form.get('email').invalid">
+                          
+                            <div *ngIf="Email.errors.required">Email is required</div>
+                           
+                           
+                        </div>
+
+
+                      </div>
+
+                      <div class="control">
+                        <label>Password </label>
+                        <br>
+                        <input type="password" placeholder="Password"
+                        formControlName="password"
+                        >
+
+                        
+                        <div
+                        class="alert alert-danger"
+                        *ngIf="Password.touched && Password.invalid"
+                        >
+                        <div *ngIf="Password.errors.required">Passowrd is required</div>
+                        
+                      </div>
+
+                      </div> 
+
+                      <div class="control">
+                        
+                        
+                        <button [disabled]="form.invalid" class="btn" type="submit">Sign in</button>
+
+                      </div> 
+                      <div class="control">
+                        
+                        
+                        <a routerLink="/admin-signup" class="btn">Sign Up</a>
+
+                      </div> 
+
+                      <div class="alert alert-success" *ngIf="success==true">Login Successful</div>
+                      <div class="alert alert-danger" *ngIf="err==true">Ivalid username or password</div>
+                      
+
+                    </form>
+                  
+          
+                  </div>
+
+        </div>      
+        <div class="   col-sm-4">
+            
+        </div>
+
+</div>
+
+
+

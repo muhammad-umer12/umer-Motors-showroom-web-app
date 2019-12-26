@@ -1,0 +1,49 @@
+<div class="fluid-container upper_nav" >
+
+    <div class="container-fluid" >
+    
+      <div class="pad" style="margin-top: 15px;">
+      <div class="col-md-10" style="padding-left: 100px;">
+  
+          <a href="mailto:info@company.com"> 
+            <i class="fa fa-envelope-o text-success" ></i>
+            <span class=" d-md-inline" style="margin-left:10px;">info@company.com</span>
+          </a>
+        
+      </div>
+
+      <div class="col-md-2">
+
+          <div *ngIf=" login == true">
+          <a href="#" class="login ">
+            <i class="fa fa-sign-in  "style="padding-right:10px;"></i>
+            <span class="d-none d-md-inline" style="padding-right:7px;">Login    </span>
+            <span class="d-none d-md-inline" >|    </span>
+          </a>
+
+          <a href="#" class="login "  > 
+            <i class="fa fa-user " style="padding-right:10px;"></i>
+            <span class="d-none d-md-inline">Register</span>
+          </a>
+
+          
+
+          </div>
+          <div *ngIf=" login == false">
+                <a  class="login " (click)="log()"  > 
+                <i class="fa fa-user " style="padding-right:10px;"></i>
+                <span class="d-none d-md-inline">Logout</span>
+                </a>
+          </div>
+
+
+      </div>
+
+    </div>
+
+    </div>
+
+
+
+
+</div>

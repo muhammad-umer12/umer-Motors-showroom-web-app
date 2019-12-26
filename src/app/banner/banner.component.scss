@@ -1,0 +1,46 @@
+section.hero {
+    color: #fff;
+    background-size: cover !important;
+}
+
+.d-flex {
+    display: flex!important;
+}
+
+section {
+    top:0;
+    padding: 150px 0;
+}
+
+
+.small-text-hero {
+    font-size: 18px;
+}
+
+.chng_color{
+
+    color: rgb(77, 203, 68);
+}
+
+.icn{
+    
+    color:rgb(77, 203, 68);
+    size: 20px;
+    font-family: "places" !important;
+    font-style: normal !important;
+    font-weight: normal !important;
+    font-variant: normal !important;
+    text-transform: none !important;
+    
+    line-height: 1;
+}
+
+.stl{
+
+    font-size: 65px;
+    margin-bottom: .5rem;
+    font-family: "Vidaloka",serif;
+    font-weight: 700;
+    line-height: 1.1;
+    font-stretch: expanded;
+}

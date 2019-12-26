@@ -1,0 +1,182 @@
+
+
+nav.navbar{
+
+    
+    padding-top: 25px;
+    padding-bottom: 25px;
+    margin-bottom:  0px;
+    box-shadow: 2px 2px 2px rgba(0,0,0,0.1);
+    background: #fff;
+    z-index: 9998;
+    
+}
+
+.navbar{
+
+    padding:.5rem 1rem;
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 0px;
+    justify-content: space-between;
+    box-sizing: border-box;
+}
+
+@media (min-width: 992px){
+.navbar-expand-lg {
+    
+    flex-flow: row nowrap;
+
+    justify-content: flex-start;
+}
+}
+
+.navbar .container {
+    
+    display: flex;
+   
+    
+    
+    justify-content: space-between;
+}
+
+
+ck{
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    
+}
+
+
+@media (min-width: 992px){
+.navbar-expand-lg .navbar-collapse {
+    
+    display: flex!important;
+
+    flex-basis: auto;
+}
+
+
+
+}
+
+.navbar-collapse {
+    
+    flex-grow: 1;
+    
+    align-items: center;
+}
+
+
+.jaint-container{
+
+    padding-top: 20px;
+    padding-bottom: 20px;
+    
+    box-shadow: 2px 2px 2px rgba(0,0,0,0.1);
+    background: #fff;
+    z-index: 9998;
+}
+
+
+.navbar-default .navbar-nav li a{
+
+    color:black;
+    font-family:sans-serif;
+    
+    font-size: 15px;
+    line-height: 1.5
+}
+
+.navbar-default .navbar-nav li a:hover{
+
+       color:rgb(77, 203, 68);
+}
+
+
+.btn-outline-primary {
+color:rgb(77, 203, 68);
+font-size: 17px;
+border: 1px solid rgb(77, 203, 68);
+border-radius: 5px;
+
+}
+.nnn a:hover{
+    color:white;
+       background-color: rgb(77, 203, 68);
+}
+
+
+// hero section CSS
+
+
+
+
+
+.align-items-center {
+    
+    align-items: center!important;
+}
+
+
+
+
+
+.icn{
+    
+    color:rgb(77, 203, 68);
+    size: 20px;
+    font-family: "places" !important;
+    font-style: normal !important;
+    font-weight: normal !important;
+    font-variant: normal !important;
+    text-transform: none !important;
+    
+    line-height: 1;
+}
+
+
+
+
+
+
+
+
+.text-hero {
+    font-size: 18px;
+    font-weight: 300;
+    margin-top: 0;
+    margin-bottom: 1rem;
+}
+
+
+
+.search-bar {
+    border-radius: 100px;
+    background: #fff;
+    
+    box-shadow: 0 0 5px rgba(0,0,0,0.15);
+    padding: 5px;
+    margin-top: 30px;
+    padding-left: 30px;
+}
+
+
+.search-bar .submit {
+    background: #4dcb44;
+    color: #fff;
+    font-family: "Vidaloka",serif;
+    border-radius: 100px;
+    font-size: 1.3em;
+    cursor: pointer;
+}
+
+
+.search-bar input, .search-bar .bootstrap-select {
+    background: none;
+    border: none;
+    padding: 20px 0 15px;
+    width: 100%;
+}

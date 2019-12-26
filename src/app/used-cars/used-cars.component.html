@@ -1,0 +1,196 @@
+
+<div class="col-sm-10   ">
+
+    <div class="container-fluid navv"  >
+      
+          <input type="text" class="set" placeholder="Search" *ngIf=" table == true ">
+          <button class="btn btn-primary" *ngIf=" table == true ">Search</button>
+
+          <button  *ngIf=" table == false " class="btn btn-success " style="margin-left: 10px ; width:200px;" (click)="view()">View Vehicle</button>
+      <button  *ngIf=" table == true " class="btn btn-success " style="margin-left: 10px ; width:200px;" (click)="changeUI()">Add Vehicle</button>
+
+    </div>  
+
+       <!---- <form id="search-form" class="form-inline" role="form" method="post" action="//www.google.com/search" target="_blank">
+            <div class="input-group">
+                <input type="text" class="form-control search-form" placeholder="Search">
+                DO NOT NEED TRAILING SLASH "/" As HTML5 FORMS SLASHES ARE NO LONGER REQUIRED <span class="input-group-btn"><button type="submit" class="btn btn-primary search-btn" data-target="#search-form" name="q"><i class="fa fa-search">FONT AWESOME font @ "http://fortawesome.github.io/Font-Awesome/" </i>
+                                                                                </button></span>
+        
+            </div>
+        </form> -->
+
+
+        <div *ngIf=" table == true " class="container tablee">
+
+            <h1 style="text-align: center; margin-bottom: 30px;">Used Cars</h1>
+                
+                <table class="table table-hover">
+                        <thead>
+                          <tr>
+                            <th>Firstname</th>
+                            <th>Lastname</th>
+                            <th>Email</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>John</td>
+                            <td>Doe</td>
+                            <td>john@example.com</td>
+                          </tr>
+                          <tr>
+                            <td>Mary</td>
+                            <td>Moe</td>
+                            <td>mary@example.com</td>
+                          </tr>
+                          <tr>
+                            <td>July</td>
+                            <td>Dooley</td>
+                            <td>july@example.com</td>
+                          </tr>
+                        </tbody>
+                      </table>
+        </div>
+
+
+        <div  *ngIf=" table == false " class="container form tablee">
+
+            
+
+                <div class="container-fluid back ">
+                <div class="   col-sm-4">
+                    
+                </div>
+                <div class=" col-sm-4 main">    
+                    <div class=" main_inner ">
+                        <h1>Car Registration</h1>
+
+                      <form    [formGroup]="form" (ngSubmit)="register()" enctype="multipart/form-data"> 
+                        <div class="form"    >
+                          <div class="control">
+                                <label class="em">Brand Name </label>
+                                <input type="text"  placeholder="" id="username"
+                                formControlName="brandname">
+                                
+                             <div
+                                class="alert alert-danger"
+                               *ngIf="brandname.touched && brandname.invalid">
+                              <div *ngIf="brandname.errors.required">Brandame is required</div>
+                          
+                            </div>  
+                          </div>
+            
+                            <div class="control">
+                                <label class="em">Model Year</label>             
+                                <input type="text" id="modelyear" formControlName="modelyear" placeholder="">
+              
+                                <div
+                                    class="alert alert-danger"
+                                    *ngIf="modelyear.touched && modelyear.invalid">                                  
+                                   <div *ngIf="modelyear.errors.required">Model Year is required</div>
+                             
+                        
+                        
+                        </div>  
+                            </div>
+
+
+                            <div class="control">
+                                    <label class="em">Price</label>
+                                    
+                                    
+                                    <input type="text"  formControlName="price" placeholder="">
+                                  
+                                <div
+                                    class="alert alert-danger"
+                                    *ngIf="price.touched && price.invalid">
+                            
+                                      <div *ngIf="price.errors.required">Price is required</div>
+                             
+                        
+                        
+                                  </div>  
+                              </div>
+
+                        <div class="control">
+                              <label class="em">Color</label>
+                              <br>
+                                        
+                           <input type="text"  placeholder="" formControlName="color">
+                                    
+                          <div
+                            class="alert alert-danger"
+                            *ngIf="color.touched && color.invalid">
+                              <div *ngIf="color.errors.required">Color is required</div>
+                           </div>  
+                        </div>
+
+
+                        <div class="control">
+                          <label class="em">Description</label>
+                          <br>
+                                    
+                       <input type="textarea"  placeholder="" formControlName="description">
+                                
+                      <div
+                        class="alert alert-danger"
+                        *ngIf="description.touched && color.invalid">
+                          <div *ngIf="description.errors.required">Description is required</div>
+                       </div>  
+                    </div>
+
+
+
+                        <div class="control">
+                          <label class="em">Upload Car image</label>
+                          <br>
+                                    
+                       <input type="file" (change)="uploadFile($event)" placeholder="" formControlName="img_file">
+                                
+                      <div
+                        class="alert alert-danger"
+                        *ngIf="img_file.touched && img_file.invalid">
+                          <div *ngIf="img_file.errors.required">Image is required</div>
+                       </div>  
+                    </div>
+
+
+            
+                           
+            
+                            <div class="control">
+                                
+                                
+                                <button [disabled]="form.invalid"class="btn" type="submit">Register</button>
+            
+                            </div> 
+                          
+    
+                  </div>
+                </form>  
+          
+                  </div>
+    
+                </div>      
+        
+    
+    </div>
+    
+    
+    
+    
+    
+                      
+         </div>        
+
+
+</div>
+
+
+       
+
+
+
+    
+

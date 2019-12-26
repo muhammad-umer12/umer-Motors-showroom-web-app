@@ -1,0 +1,103 @@
+
+
+ <div class="container-fluid back ">
+    <div class="   col-sm-4">
+        
+    </div>
+      <div class=" col-sm-4 main">    
+          <div class=" main_inner ">
+              <h1>Admin Sign Up</h1>
+            <form [formGroup]="form" (ngSubmit)="signup()">
+              <div class="form">
+                  <div class="control form-group">
+                    <label  for="name" class="em">Name </label>
+                    <br>
+                    
+                    <input 
+                          type="text"
+                          id="name"
+                          placeholder="Name"
+                          formControlName="username">
+
+                          <div
+                          class="alert alert-danger"
+                          *ngIf="Username.touched && Username.invalid">
+                            
+                              <div *ngIf="Username.errors.required">Name is required</div>
+                              <div *ngIf="(Username.errors.alphanumeric)">Name doesn't contain special characters</div>
+                        
+                        
+                        </div>    
+
+                    
+
+                  </div>
+
+                  <div class="control form-group">
+                    <label 
+                        for="email" 
+                        class="em">Email </label>
+                    <br>
+                    
+                    <input 
+                        type="email"
+                        id="email"  
+                        placeholder="Email"
+                        formControlName="email">
+
+                        <div
+                          class="alert alert-danger"
+                          *ngIf="form.get('email').touched && form.get('email').invalid">
+                          
+                            <div *ngIf="Email.errors.required">Email is required</div>
+                            <div *ngIf="Email.errors.email">Enter valid email</div>
+                           
+                        </div>
+
+                  </div>
+
+                  <div class="control form-group">
+                    <label for="password"> Password </label>
+                    <br>
+                    <input 
+                      id="password"
+                    
+                      type="password" 
+                      placeholder="Password"
+                      formControlName="password">
+
+                      <div
+                          class="alert alert-danger"
+                          *ngIf="Password.touched && Password.invalid"
+                          >
+                          <div *ngIf="Password.errors.required">Passowrd is required</div>
+                            <div *ngIf="Password.errors.minlength">Password must be atleast 8 characters</div>
+                            <!-- <div *ngIf="Password.errors.cannotContainSpace">Password Cannot contain space</div> -->
+                            <div *ngIf="Password.errors.notalphanumeric">Password musta contain alphabets numbers and special character</div>
+                        </div> 
+
+                  </div> 
+
+                  <div class="control form-group">
+                    
+                    
+                    <button [disabled]="form.invalid"class="btn" type="submit" >Sign in</button>
+
+                  </div> 
+                  
+
+              </div>
+              
+          </form>
+              </div>
+
+    </div>      
+    <div class="   col-sm-4">
+        
+    </div>
+
+</div>
+
+
+
+

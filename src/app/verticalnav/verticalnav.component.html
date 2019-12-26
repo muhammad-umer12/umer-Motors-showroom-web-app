@@ -1,0 +1,15 @@
+<div class="col-sm-2" >
+
+        <div class="vertical-menu">
+                <div *ngFor="let i of arr">
+                <a  routerLink="/home/{{i.name}}">{{i.name}}</a>
+                </div>
+             <!----   <a routerLink="home/kikiki">Link 1</a> 
+                <a routerLink="home/bad">Link 2</a>
+                <a routerLink="home/nice">Link 3</a>
+                <a routerLink="/">Link 4</a> -->
+              </div>
+
+</div>
+
+<router-outlet></router-outlet>
