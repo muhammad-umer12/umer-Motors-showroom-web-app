@@ -21,7 +21,7 @@
     "@angular/router": "~8.1.2",
     "@fortawesome/fontawesome-free": "^5.11.2",
     "@rxweb/reactive-form-validators": "^1.9.6",
-    "bootstrap": "^3.3.7",
+    "bootstrap": "^3.4.1",
     "font-awesome": "^4.7.0",
     "jquery": "^3.4.1",
     "jw-angular-pagination": "^1.1.0",
