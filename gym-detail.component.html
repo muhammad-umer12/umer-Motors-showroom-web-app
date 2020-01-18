@@ -1,0 +1,144 @@
+<link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+<ion-content     [scrollEvents]="true">  
+     <!---- <img class="gym-image" src="../../assets/images/gym.png ">-->
+     <ion-thumbnail class="background">
+      <div class="bottom-left"><a><img src="../../../assets/images/arrow.png"></a></div>
+    </ion-thumbnail>
+    
+
+    <div class="zero"></div>
+
+  <div class="first-row">
+    <ion-row>
+      <ion-col >
+        Gym name here. Display full name print out here.
+      </ion-col>
+    </ion-row>
+  </div>
+
+  <div class="second-row">
+      <ion-row class="tele-row">
+        <ion-col size="1"> 
+          <img class="calender-image" src="../../../assets/images/Calendar.png">
+          <div class="col1-second-div"><img class="telephone" src="../../../assets/images/Vector.png"></div>
+          
+        </ion-col>  
+        <ion-col  size="9">
+          <p class="second-row-para">This gym has booked, 1,234 peoples in total</p>
+          <div class="col2-second-div">+41 58 568 91 10</div>
+        </ion-col >
+        <ion-col size="2" >
+          <div class="img-div">
+            <img class="tele-image" src="../../../assets/images/tele.png">
+          </div>  
+
+        </ion-col>
+      </ion-row>
+  </div>
+
+
+  <div class="third-row">
+    Information
+  </div>
+  <div class="fourth-row">
+    Lorem ipsum dolor sit amet, consectetur adipiscing elite. Nec a elementum vitae semper. Porta tortor non sollicitudin. Donec ned a sed a ornare nist.
+  </div>
+
+  <div class="fifth-row">
+      Trainers
+  </div>
+
+  <div class="sixth-row">
+    <ion-content  [scrollEvents]="true" 
+    [scrollX]="true" class="scrol">
+    
+<ion-row>
+<ion-col size="4" *ngFor="let a of images"> 
+<img  [src]="a.img" class="" />
+<div class="trainer-name">{{a.trainer_name}}</div>
+</ion-col>
+
+</ion-row>
+
+</ion-content>
+     
+  </div>
+
+
+  <div class="seventh-row">
+    Location & Access Info.
+  </div>
+
+  <div class="eight-row">
+      <ion-row >
+          <ion-col size="8">
+              Place de la Gare 2, 1001 Lausanne, Switzerland
+          </ion-col>
+
+        <ion-col  class="btn-align"size="4">
+          <button class="copy-button">Copy</button>
+        </ion-col>
+      </ion-row>
+
+      
+  </div>
+
+    <div class="ninth-row">
+        <img class="map-image" src="../../../assets/images/Rectangle 17.png">
+    </div>
+
+    <div class="tenth-row">
+        Busines hours
+    </div>
+
+    <div class="eleventh-row">
+      <ion-row class="timings">
+        <ion-col size="6" class="bold2">
+          <span class="boldd">Weekdays</span>05:00 ~ 10:00
+        </ion-col>
+
+        <ion-col size="6" class="bold2">
+          <span class="boldd">Weekdays</span>05:00 ~ 10:00
+        </ion-col>
+      </ion-row>
+
+      <div>
+        <ion-row class="timings">
+          <ion-col size="6" class="bold3">
+            <span class="boldd">Weekdays</span>05:00 ~ 10:00
+          </ion-col>
+  
+          <ion-col size="6" class="bold3">
+            <span class="boldd">Weekdays</span>05:00 ~ 10:00
+          </ion-col>
+        </ion-row>
+      </div>
+
+        
+
+    </div>
+
+    <div class="twelveth-row">
+      Notice
+    </div> 
+    
+    <div class="thirteenth-row">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elite. Nec a elementum vitae semper. Porta tortor non sollicitudin. Donec ned a sed a ornare nist.
+    </div>
+
+    <div class="forteenth-row">
+        <button class="book-now">
+            Book Now
+        </button>
+    </div>
+
+
+
+
+
+
+
+</ion-content>
+
+
+
