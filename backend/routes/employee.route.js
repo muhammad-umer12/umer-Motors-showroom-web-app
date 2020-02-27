@@ -8,7 +8,8 @@ let Employee = require('../models/Employee');
 
 // Add Employee
 employeeRoute.route('/admin/create').post((req, res, next) => {
-
+      console.log("login request ka data "+  req.body);
+      console.log(JSON.stringify(req.body))
   Employee.create(req.body, (error, data) => {
     if (error) {
       return next(error)
@@ -41,8 +42,12 @@ employeeRoute.route('/admin/login').post((req, res, next) => {
         console.log("data : "+ data);
 
         const token = jwt.sign({username :data.email},'encryptionkey')
-        console.log(token);
-      res.json(token)
+        var obj = {
+          _id : data._id,
+          token : token
+        }
+        console.log(obj);
+      res.json({id:data._id, token : token})
       }
      
     }

@@ -1,13 +1,15 @@
 
+
+
 <div class="col-sm-10   ">
 
     <div class="container-fluid navv"  >
       
-          <input type="text" class="set" placeholder="Search" *ngIf=" table == true ">
-          <button class="btn btn-primary" *ngIf=" table == true ">Search</button>
+          <input type="text" class="set" placeholder="Search" *ngIf=" table == 1 ">
+          <button class="btn btn-primary" *ngIf=" table == 1 ">Search</button>
 
-          <button  *ngIf=" table == false " class="btn btn-success " style="margin-left: 10px ; width:200px;" (click)="view()">View Vehicle</button>
-      <button  *ngIf=" table == true " class="btn btn-success " style="margin-left: 10px ; width:200px;" (click)="changeUI()">Add Vehicle</button>
+          <button  *ngIf=" table == 2 || table == 3 " class="btn btn-success " style="margin-left: 10px ; width:200px;" (click)="view()">View Vehicle</button>
+      <button  *ngIf=" table == 1 " class="btn btn-success " style="margin-left: 10px ; width:200px;" (click)="changeUI()">Add Vehicle</button>
 
     </div>  
 
@@ -21,40 +23,43 @@
         </form> -->
 
 
-        <div *ngIf=" table == true " class="container tablee">
+        <div *ngIf=" table == 1" class="container tablee">
 
             <h1 style="text-align: center; margin-bottom: 30px;">Used Cars</h1>
                 
                 <table class="table table-hover">
                         <thead>
                           <tr>
-                            <th>Firstname</th>
-                            <th>Lastname</th>
-                            <th>Email</th>
+                            <th>Name</th>
+                            <th>Owner Name</th>
+                            <th>price</th>
+                            <th>phone number</th>
+                            <th>image</th>
+                            <th>View</th>
+                            <th>Delete</th>
                           </tr>
                         </thead>
                         <tbody>
-                          <tr>
-                            <td>John</td>
-                            <td>Doe</td>
-                            <td>john@example.com</td>
+                          <tr *ngFor="let i of usedCars"   >
+                          
+                            <td>{{i.brandname}}</td>
+                            <td>{{i.owner_name}}</td>
+                            <td>{{i.price}}</td>
+                          
+                            <td>{{i.owner_phone}}</td>
+                            <td><img src="{{i.img_url}}" height="35px" width="55px"></td>
+                            <td><button class=" btn btn-primary" (click)="carDetails(i)">View</button></td>
+                            <td><button class="btn btn-danger" (click)=delete(i)>Delete</button></td>
+                            
+                        
                           </tr>
-                          <tr>
-                            <td>Mary</td>
-                            <td>Moe</td>
-                            <td>mary@example.com</td>
-                          </tr>
-                          <tr>
-                            <td>July</td>
-                            <td>Dooley</td>
-                            <td>july@example.com</td>
-                          </tr>
+                         
                         </tbody>
                       </table>
         </div>
 
 
-        <div  *ngIf=" table == false " class="container form tablee">
+        <div   *ngIf=" table == 2 " class="container form tablee">
 
             
 
@@ -68,6 +73,21 @@
 
                       <form    [formGroup]="form" (ngSubmit)="register()" enctype="multipart/form-data"> 
                         <div class="form"    >
+
+                         
+                            <div class="control">
+                                <label class="em">Car Name </label>
+                                <input type="text"  placeholder="" 
+                                formControlName="carname">
+                                
+                             <div
+                                class="alert alert-danger"
+                               *ngIf="myForm.carname.touched && myForm.carname.invalid">
+                              <div *ngIf="myForm.carname.errors?.required">Car name is required</div>
+                          
+                            </div>  
+                          </div>
+
                           <div class="control">
                                 <label class="em">Brand Name </label>
                                 <input type="text"  placeholder="" id="username"
@@ -75,20 +95,33 @@
                                 
                              <div
                                 class="alert alert-danger"
-                               *ngIf="brandname.touched && brandname.invalid">
-                              <div *ngIf="brandname.errors.required">Brandame is required</div>
+                               *ngIf="myForm.brandname.touched && myForm.brandname.invalid">
+                              <div *ngIf="myForm.brandname.errors?.required">Brandame is required</div>
                           
                             </div>  
                           </div>
             
                             <div class="control">
-                                <label class="em">Model Year</label>             
-                                <input type="text" id="modelyear" formControlName="modelyear" placeholder="">
+                                <label class="em">Model Year</label> 
+                                <select  style="margin-left: 20px; width:150px"id="modelyear" formControlName="modelyear">
+                                  <option value="2010">2010</option>
+                                  <option value="2011">2011</option>
+                                  <option value="2012">2012</option>
+                                  <option value="2013">2014</option>
+                                  <option value="2015">2015</option>
+                                  <option value="2016">2016</option>
+                                  <option value="2017">2017</option>
+                                  <option value="2018">2018</option>
+                                  <option value="2019">2019</option>
+                                  <option value="2020">2020</option>
+                               
+                                </select>            
+                            <!----    <input type="text" id="modelyear" formControlName="modelyear" placeholder=""> --->
               
                                 <div
                                     class="alert alert-danger"
-                                    *ngIf="modelyear.touched && modelyear.invalid">                                  
-                                   <div *ngIf="modelyear.errors.required">Model Year is required</div>
+                                    *ngIf="myForm.modelyear.touched && myForm.modelyear.invalid">                                  
+                                   <div *ngIf="myForm.modelyear?.errors.required">Model Year is required</div>
                              
                         
                         
@@ -104,9 +137,9 @@
                                   
                                 <div
                                     class="alert alert-danger"
-                                    *ngIf="price.touched && price.invalid">
+                                    *ngIf="myForm.price.touched && myForm.price.invalid">
                             
-                                      <div *ngIf="price.errors.required">Price is required</div>
+                                      <div *ngIf="myForm.price.errors?.required">Price is required</div>
                              
                         
                         
@@ -121,8 +154,8 @@
                                     
                           <div
                             class="alert alert-danger"
-                            *ngIf="color.touched && color.invalid">
-                              <div *ngIf="color.errors.required">Color is required</div>
+                            *ngIf="myForm.color.touched && myForm.color.invalid">
+                              <div *ngIf="myForm.color.errors?.required">Color is required</div>
                            </div>  
                         </div>
 
@@ -135,30 +168,57 @@
                                 
                       <div
                         class="alert alert-danger"
-                        *ngIf="description.touched && color.invalid">
-                          <div *ngIf="description.errors.required">Description is required</div>
+                        *ngIf="myForm.description.touched && myForm.color.invalid">
+                          <div *ngIf="myForm.description.errors?.required">Description is required</div>
                        </div>  
                     </div>
 
+
+                    <div class="control">
+                      <label class="em">Owner Name</label>
+                      <br>
+                                
+                   <input type="textarea"  placeholder="" formControlName="owner_name">
+                            
+                  <div
+                    class="alert alert-danger"
+                    *ngIf="myForm.owner_name.touched && myForm.owner_name.invalid">
+                      <div *ngIf="myForm.owner_name.errors?.required">Owner Name is required</div>
+                   </div>  
+                </div>
+
+
+                <div class="control">
+                  <label class="em">Owner Phone. </label>
+                  <br>
+                            
+               <input type="textarea"  placeholder="" formControlName="owner_phone">
+                        
+              <div
+                class="alert alert-danger"
+                *ngIf="myForm.owner_phone.touched && myForm.owner_phone.invalid">
+                  <div *ngIf="myForm.owner_phone.errors?.required">Owner Phone. is required</div>
+               </div>  
+            </div>
 
 
                         <div class="control">
                           <label class="em">Upload Car image</label>
                           <br>
                                     
-                       <input type="file" (change)="uploadFile($event)" placeholder="" formControlName="img_file">
+                       <input type="file" accept="image/*"  (change)="uploadFile($event)" placeholder="" formControlName="img_file">
                                 
                       <div
                         class="alert alert-danger"
-                        *ngIf="img_file.touched && img_file.invalid">
-                          <div *ngIf="img_file.errors.required">Image is required</div>
+                        *ngIf="myForm.img_file.touched && myForm.img_file.invalid">
+                          <div *ngIf="myForm.img_file.errors?.required">Image is required</div>
                        </div>  
                     </div>
 
 
             
                            
-            
+                    <div class="alert alert-success" *ngIf="carReg==true">Car registered Successfully</div>
                             <div class="control">
                                 
                                 
@@ -168,12 +228,15 @@
                           
     
                   </div>
+                
                 </form>  
           
                   </div>
     
                 </div>      
-        
+
+               
+                 
     
     </div>
     
@@ -182,7 +245,31 @@
     
     
                       
-         </div>        
+         
+    
+
+</div>
+
+<div *ngIf =" table == 3">
+  <div class="container tablee">
+      <div class="row">
+        <div class="col-sm-5">
+          <h3>{{detail.brandname}}</h3>
+          <h5>{{detail.modelyear}}</h5>
+          <p>{{detail.description}}</p>
+          <p><strong>{{detail.owner_name}}</strong></p>
+          <p><strong>{{detail.owner_phone}}</strong></p>
+
+        </div>
+        <div class="col-sm-7"> 
+          <img src="http://localhost:4000/carsforsale/getImg/{{imgURL}}" style="height:400px; width:500px"  alt="not acailable">
+        </div>
+
+      </div>
+      
+      
+  </div>
+</div>
 
 
 </div>
@@ -191,6 +278,4 @@
        
 
 
-
-    
 

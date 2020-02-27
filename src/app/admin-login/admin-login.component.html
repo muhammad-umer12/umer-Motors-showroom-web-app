@@ -46,13 +46,15 @@
                       </div>
 
                       </div> 
-
                       <div class="control">
+                      <div class="alert alert-success" *ngIf="success==true">Login Successful</div>
+                      <div class="alert alert-danger" *ngIf="err==true">Ivalid username or password</div>
+                    </div>
                         
                         
                         <button [disabled]="form.invalid" class="btn" type="submit">Sign in</button>
 
-                      </div> 
+                      
                       <div class="control">
                         
                         
@@ -60,8 +62,7 @@
 
                       </div> 
 
-                      <div class="alert alert-success" *ngIf="success==true">Login Successful</div>
-                      <div class="alert alert-danger" *ngIf="err==true">Ivalid username or password</div>
+                      
                       
 
                     </form>

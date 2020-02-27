@@ -21,13 +21,20 @@ mongoose.connect(dbConfig.db, {
 const employeeRoute = require('../backend/routes/employee.route')
 const carsRoute = require('../backend/routes/cars.route')
 const app = express();
+const multer = require('multer')
 app.use(bodyParser.json());
+
 app.use(bodyParser.urlencoded({
    extended: false
+   
 }));
 app.use(cors()); 
 
+const k = __dirname;
+module.exports = k;
+
 app.use(express.static(path.join(__dirname, 'dist/umer-motors')));
+app.use(express.static(__dirname + '/uploads'));
 app.use('/', express.static(path.join(__dirname, 'dist/umer-motors')));
 app.use('/api', employeeRoute);
 

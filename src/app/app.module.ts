@@ -1,3 +1,4 @@
+import { MatToolbarModule } from '@angular/material/toolbar';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RxReactiveFormsModule } from '@rxweb/reactive-form-validators';
@@ -19,11 +20,18 @@ import { NewCarsComponent } from './new-cars/new-cars.component';
 import { AllUsedCarsComponent } from './all-used-cars/all-used-cars.component';
 import { ReactiveFormsModule,FormsModule, Validators } from '@angular/forms';
 import { ApiService } from './signup/api.service';
+import { ApiService_usedcars } from './used-cars/used-cars.service';
+
 import { LoginapiService } from './admin-login/loginapi.service';
 import { NgxContentLoadingModule } from 'ngx-content-loading';
 
 
 import { HttpClientModule } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+import {MatCardModule } from '@angular/material/card';
+import {MatButtonModule } from '@angular/material/button';
+
+import { FlexComponent } from './flex/flex.component';
 
 @NgModule({
   declarations: [
@@ -42,18 +50,28 @@ import { HttpClientModule } from '@angular/common/http';
     UsedCarsComponent,
     NewCarsComponent,
     AllUsedCarsComponent,
+    FlexComponent,
+    
     
   ],
   imports: [
+    MatCardModule,
+
+    MatButtonModule,
+    MatToolbarModule,
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    RxReactiveFormsModule,
+    BrowserAnimationsModule,
     NgxContentLoadingModule,
+    
+
+
     
     HttpClientModule
   ],
-  providers: [ApiService,LoginapiService,UppernavwithoutLoginComponent,DashboardComponent],
+  providers: [ApiService,LoginapiService,UppernavwithoutLoginComponent,DashboardComponent,
+                ApiService_usedcars],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

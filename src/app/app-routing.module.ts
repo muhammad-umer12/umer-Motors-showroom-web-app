@@ -13,9 +13,9 @@ import { BannerComponent } from './banner/banner.component';
 import { UsedCarsComponent } from './used-cars/used-cars.component';
 import { NewCarsComponent } from './new-cars/new-cars.component';
 import { SignupComponent } from './signup/signup.component';
-
+import { FlexComponent } from './flex/flex.component';
 const routes: Routes = [
-  
+    
   
   
  
@@ -30,10 +30,11 @@ const routes: Routes = [
       
 
     ]},
-  
+    {path : 'flex' , component : FlexComponent},
   {path : 'product', component: ProductsComponent},
   {path : 'admin', component: AdminLoginComponent},
   {path : 'admin-signup', component: SignupComponent},
+  {path : 'admin-signup', component: FlexComponent},
 
   {path : 'admin-dashboard', component: DashboardComponent,
      children:[

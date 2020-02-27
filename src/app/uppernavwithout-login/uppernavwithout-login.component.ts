@@ -3,11 +3,21 @@ import { Router } from '@angular/router';
 import {  NgZone } from '@angular/core';
 import { isEmpty } from 'rxjs/operators';
 import{ DashboardComponent } from './../dashboard/dashboard.component'
+import { trigger, transition, animate, style } from '@angular/animations';
 
 @Component({
   selector: 'app-uppernavwithout-login',
   templateUrl: './uppernavwithout-login.component.html',
-  styleUrls: ['./uppernavwithout-login.component.scss']
+  styleUrls: ['./uppernavwithout-login.component.scss'],
+  animations : [
+    trigger('fade',[
+      transition('void => *',[
+        style({backgroundColor : 'white'}),
+        
+        animate(500)
+      ])
+    ])
+  ]
 })
 export class UppernavwithoutLoginComponent implements OnInit {
   login: boolean;

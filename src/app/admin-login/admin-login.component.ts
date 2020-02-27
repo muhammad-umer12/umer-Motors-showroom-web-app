@@ -14,8 +14,9 @@ import {DashboardComponent} from './../dashboard/dashboard.component'
 export class AdminLoginComponent implements OnInit {
 
   constructor(private db : DashboardComponent,private nav: UppernavwithoutLoginComponent,private apiService : LoginapiService,  private router: Router,private ngZone: NgZone) { }
-
+    signin :any;
   ngOnInit() {
+    this.signin = true;
     this.success= false;
     this.err=false;
     this.checkLogin()
@@ -74,7 +75,11 @@ export class AdminLoginComponent implements OnInit {
           {
           console.log('Login Successful')
           //console.log(res)
-          localStorage.setItem('token',res)
+            let a = res;
+          let   b = res.token
+          let c = res.id
+          localStorage.setItem('token' , b );
+          localStorage.setItem('_id' , c );
           console.log(localStorage.getItem('token'));
           
           this.nav.Login();

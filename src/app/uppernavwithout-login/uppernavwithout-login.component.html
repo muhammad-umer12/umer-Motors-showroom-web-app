@@ -1,4 +1,4 @@
-<div class="fluid-container upper_nav" >
+<div class="fluid-container upper_nav" @fade >
 
     <div class="container-fluid" >
     
@@ -15,13 +15,13 @@
       <div class="col-md-2">
 
           <div *ngIf=" login == true">
-          <a href="#" class="login ">
+          <a routerLink="/admin" class="login ">
             <i class="fa fa-sign-in  "style="padding-right:10px;"></i>
-            <span class="d-none d-md-inline" style="padding-right:7px;">Login    </span>
+            <span  class="d-none d-md-inline" style="padding-right:7px;">Login    </span>
             <span class="d-none d-md-inline" >|    </span>
           </a>
 
-          <a href="#" class="login "  > 
+          <a routerLink="/admin-signup" class="login "  > 
             <i class="fa fa-user " style="padding-right:10px;"></i>
             <span class="d-none d-md-inline">Register</span>
           </a>
@@ -30,7 +30,7 @@
 
           </div>
           <div *ngIf=" login == false">
-                <a  class="login " (click)="log()"  > 
+                <a href="#"  class="login " (click)="log()"  > 
                 <i class="fa fa-user " style="padding-right:10px;"></i>
                 <span class="d-none d-md-inline">Logout</span>
                 </a>

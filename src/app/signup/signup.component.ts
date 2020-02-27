@@ -12,8 +12,9 @@ import {  NgZone } from '@angular/core';
 export class SignupComponent implements OnInit {
 
   constructor(private apiService : ApiService,  private router: Router,private ngZone: NgZone) { }
-
+    signUpFail;
   ngOnInit() {
+        this.signUpFail = false;
   }
 
   form = new FormGroup({
@@ -50,18 +51,23 @@ export class SignupComponent implements OnInit {
           return this.form.get('password');
          }
          // signup finction
+
          signup()
          {
-          console.log(this.form.value);
+        
+          
 
           this.apiService.createEmployee(this.form.value).subscribe(
             (res) => {
               console.log('Employee successfully created!')
               console.log(res)
+              this.signUpFail= true;
 
               this.ngZone.run(() => this.router.navigateByUrl('/admin'))
             }, (error) => {
               console.log(error);
+              this.signUpFail = !this.signUpFail;
+
             });
 
          }

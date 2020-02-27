@@ -1,22 +1,23 @@
 
 
-<div     class="container border ">
-    <div class="heading">Products</div>
-     <div class="inner-border ">
+<div      class="container border ">
+    <div  class="heading">Products</div>
+     <div *ngIf="description == true" class="inner-border ">
         
-    <div class="col-sm-3 card"  *ngFor="let p of pageOfItems"    >
+    <div  class="col-sm-3 card"  *ngFor="let p of usedCars"    >
         
-         <a>
+         <a  style="text-decoration: none" (click)="desView(p)" >
              
         <div class="card_pic">
 
             
-            <img src="../assets/images/car.jpg" class="img_style img-responsive">
+            <img img src="{{p.img_url}}" class="img_style img-responsive">
 
         </div>
         
         <div>
-            <p>lorem ipsum is the</p>
+        <p>{{p.brandname}}  {{p.carname}} {{p.modelyear}}</p>
+            <p>{{p.price | currency : 'PKR'}}</p>
 
             
         </div>
@@ -27,14 +28,62 @@
 
     
 </div>
-<div class="card-footer pb-0 pt-3">
-        <jw-pagination [items]="items" (changePage)="onChangePage($event)"></jw-pagination>
+
+
+
+
+    
+
+</div>
+
+<div  *ngIf="description == false">
+        <div fxFlex>
+            <mat-card>
+              <mat-card-header>
+                <mat-card-title>
+                  <h3>{{des.brandname  | uppercase }}   {{des.carname | uppercase}} {{des.modelyear}}</h3>
+                </mat-card-title>
+              </mat-card-header>
+              <img height="500px;" width="400px" mat-card-image src={{des.img_url}} alt={{des.carname}}>
+              <mat-card-content>
+                <p>{{des.price | currency : 'PKR'}}
+                </p>
+              </mat-card-content>
+              <mat-card-actions>
+                <button mat-button (click)="desView(des)">back</button>
+                
+              </mat-card-actions>
+
+              <mat-card-title>Bids</mat-card-title>
+              <table width="250px">
+              <div  *ngFor="let i of des.bid">
+                <tr>
+                   <td> <p>{{i.bidamount | currency : "PKR"}}</p></td>
+                  
+                <div fxFlex> 
+
+                 <td>  <div  *ngIf=" user == carowner">
+                      <button mat-button  *ngIf="i.accept == false" (click)="accepted(i,des)">Accept</button>
+                      <p *ngIf="i.accept == true">Unaccept </p>
+                    </div>
+                  </td>  
+                </div>
+                </tr>  
+
+              </div>
+              <div *ngFor="let k of bids">
+                <p>{{k.bid | currency : "PKR"}}</p>
+              </div>
+            </table>
+
+              
+              <form  *ngIf=" user != carowner" [formGroup]="form" (ngSubmit)="addBid(des)">
+              <input formControlName="bid" type="text" placeholder="Place your bid">
+              <button mat-button type="submit">Place Bid</button>
+            </form>
+            </mat-card>
+          </div>
     </div>
-   
-</div>
-
-</div>
-
 
  <!--<div class="card text-center m-3">
     <h3 class="card-header">Angular 8 Pagination Example</h3>
